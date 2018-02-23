@@ -24,7 +24,7 @@ import FetchProvider from '../client/FetchProvider';
           </Provider>
         );
       }
-
+      let args;
      async function render(req, res) {
       const modules1 = clientStats.modules
         // Waiting for https://github.com/webpack/webpack/issues/4141
@@ -55,6 +55,8 @@ import FetchProvider from '../client/FetchProvider';
       await Promise.all(promises);
 
       const requires = flushServerSideRequirePaths();
+
+      console.log('requires', requires);
       const scripts = [];
 
       const mainScripts = clientStats.assetsByChunkName;
